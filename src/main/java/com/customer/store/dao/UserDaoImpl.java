@@ -3,6 +3,7 @@ package com.customer.store.dao;
 import com.customer.store.model.User;
 import org.hibernate.Query;
 import org.hibernate.Session;
+import org.hibernate.SessionFactory;
 import org.hibernate.Transaction;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.orm.hibernate4.HibernateTemplate;
@@ -17,7 +18,14 @@ public class UserDaoImpl implements UserDao {
     @Autowired
     private HibernateTemplate hibernateTemplate; //Spring Hibernate template
 
+    @SuppressWarnings("unchecked")
+    @Override
+    public List<User> getAllUser() {
+        String hql = "FROM User";
+        return (List<User>) hibernateTemplate.find(hql);
+    }
 
+/*
     @Override
     public User getUserById(int id){
         return hibernateTemplate.get(User.class, id);
@@ -30,12 +38,6 @@ public class UserDaoImpl implements UserDao {
     }
 
 
-    @SuppressWarnings("unchecked")
-    @Override
-    public List<User> getAllUser()  {
-        String hql = "FROM User";
-        return (List<User>) hibernateTemplate.find(hql);
-    }
 
     @Override
     public void addUser(User user){
@@ -56,5 +58,5 @@ public class UserDaoImpl implements UserDao {
     @Override
     public void deleteUser(int id){
         hibernateTemplate.delete(getUserById(id));
-    }
+    }*/
 }

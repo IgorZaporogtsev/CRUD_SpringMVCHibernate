@@ -35,7 +35,7 @@ public class DBConfig {
 	public SessionFactory sessionFactory() {
 		LocalSessionFactoryBean lsfb = new LocalSessionFactoryBean();
 		lsfb.setDataSource(getDataSource());
-		lsfb.setPackagesToScan("com.concretepage.entity");
+		lsfb.setPackagesToScan("com.customer.store");
 		lsfb.setHibernateProperties(hibernateProperties());
 		try {
 			lsfb.afterPropertiesSet();

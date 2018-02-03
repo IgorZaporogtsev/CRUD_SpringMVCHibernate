@@ -2,10 +2,9 @@ package com.customer.store.model;
 import javax.persistence.*;
 
 
-@Entity
+@Entity                     //@Entity(name = "table_user") если не указываем имя таблицы в HQL используется имя класса
 @Table(name = "table_user")
 public class User {
-
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private int id;
