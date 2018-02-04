@@ -21,9 +21,17 @@ public class UserDaoImpl implements UserDao {
     @SuppressWarnings("unchecked")
     @Override
     public List<User> getAllUser() {
+        hibernateTemplate.setCheckWriteOperations(false);
         String hql = "FROM User";
         return (List<User>) hibernateTemplate.find(hql);
     }
+
+    @Override
+    public void addUser(User user){
+        hibernateTemplate.setCheckWriteOperations(false);
+        hibernateTemplate.save(user);
+    }
+
 
 /*
     @Override
@@ -39,10 +47,6 @@ public class UserDaoImpl implements UserDao {
 
 
 
-    @Override
-    public void addUser(User user){
-        hibernateTemplate.save(user);
-    }
 
 
     @Override

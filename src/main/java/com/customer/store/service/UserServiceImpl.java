@@ -16,6 +16,12 @@ public class UserServiceImpl implements UserService {
     public List<User> getAllUser() {
         return userDao.getAllUser();
     }
+
+
+    @Override
+    public void addUser(User user) {
+        userDao.addUser(user);
+    }
 /*
     @Override
     public User getUserById(int id) {
@@ -27,10 +33,7 @@ public class UserServiceImpl implements UserService {
         return userDao.getUserByLogin(login);
     }
 
-    @Override
-    public void addUser(User user) {
-        userDao.addUser(user);
-    }
+
 
     @Override
     public void updateUser(User user) {

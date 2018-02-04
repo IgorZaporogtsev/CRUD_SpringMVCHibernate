@@ -17,7 +17,9 @@ public class UserController {
 
     @RequestMapping(value = "user", method = RequestMethod.GET)
     public String getAllUser(Model model){
-        model.addAttribute("user", new User());
+        User user = new User("login", "rewrw", "23");
+        userService.addUser(user);
+      //  model.addAttribute("user", new User());
         model.addAttribute("getAllUser", this.userService.getAllUser());
         return "user";
     }
