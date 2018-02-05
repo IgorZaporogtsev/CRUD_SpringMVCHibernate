@@ -29,7 +29,7 @@ public class UserController {
         }else {
             userService.updateUser(user);
         }
-        return "redirect:/user";
+        return "addUser";
     }
 
 

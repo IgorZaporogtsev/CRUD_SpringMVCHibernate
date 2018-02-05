@@ -1,16 +1,52 @@
-<%--
-  Created by IntelliJ IDEA.
-  User: igor
-  Date: 05.02.18
-  Time: 17:24
-  To change this template use File | Settings | File Templates.
---%>
+
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <html>
 <head>
     <title>Title</title>
 </head>
 <body>
+
+
+
+<style>
+    #centerForm {
+        position: absolute; /* Абсолютное позиционирование */
+        width: 350px; /* Ширина слоя в пикселах */
+        height: 170px; /* Высота слоя в пикселах */
+        left: 50%; /* Положение слоя от левого края */
+        top: 30%; /* Положение слоя от верхнего края */
+        margin-left: -150px; /* Отступ слева */
+        margin-top: -100px;	/* Отступ сверху */
+        background: #C4E4ED; /* Цвет фона */
+        border: solid 1px black; /* Параметры рамки вокруг */
+        padding: 10px; /* Поля вокруг текста */
+        overflow: auto; /* Добавление полосы прокрутки */
+    }
+</style>
+
+
+<div id="centerForm">
+
+
+    <form:form method="post" commandName="user" action="/add" >
+
+    <p>    <form:label path="name"> Name </form:label>
+        <form:input path="name" />
+    </p>
+    <p>
+        <form:label path="login"> Login </form:label>
+        <form:input path="login" />
+    </p>
+    <form:label path="password"> Password </form:label>
+        <form:input path="password" />
+    </p>
+
+    <footer>
+        <input type="submit" value="   Enter   " tabindex="4">
+    </footer>
+    </p>
+    </form:form>
+</div>
 
 </body>
 </html>
