@@ -1,10 +1,17 @@
-<%@page language="java" contentType="text/html;charset=utf-8" pageEncoding="UTF-8"%>
-<%@taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
-<%@taglib uri="http://java.sun.com/jsp/jstl/fmt" prefix="fmt"%>
-<%@taglib uri="http://www.springframework.org/tags/form" prefix="form"%>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
+<%@ taglib uri="http://www.springframework.org/tags" prefix="spring" %>
+<%@ taglib uri="http://www.springframework.org/tags/form" prefix="form" %>
+<%@ taglib prefix="from" uri="http://www.springframework.org/tags/form" %>
+<%@ page session="false" %>
 <!DOCTYPE html>
 <html>
-<head><title>CRUD_SpringMVCHibernate</title></head>
+<head>
+    <link href="<c:url value="/resources/css/home.css" />" rel="stylesheet">
+
+    <title>CRUD_SpringMVCHibernate</title>
+
+</head>
+
 <body>
 
 <style>
@@ -40,18 +47,28 @@
 </style>
 
 <div id="centerForm">
-    <form action="/add" method="POST">
-        <p>
-        <p> <input type="text" name="name" value="Franco"> name <br></p>
-        <p> <input type="text" name="login" value="Franco"> login <br> </p>
-        <input type="text" name="password" value="Franco"> password
-
-        </p>
-
-        <center><input type="submit" value="add"></center>
 
 
-    </form>
+    <form:form method="post" commandName="user" action="/add" >
+
+<p>    <form:label path="name"> Name </form:label>
+       <form:input path="name" />
+</p>
+<p>
+        <form:label path="login"> Login </form:label>
+        <form:input path="login" />
+</p>
+        <form:label path="password"> Password </form:label>
+        <form:input path="password" />
+</p>
+
+                <footer>
+                    <input type="submit" value="   Enter   " tabindex="4">
+                </footer>
+</p>
+    </form:form>
+
+
 </div>
 
 <div id="centerTable">
@@ -76,8 +93,8 @@
                 <td><c:out value="${users.password}"/></td>
                 <td><c:out value="${users.role}"/></td>
 
-              <%--  <td><a href="/update?id=${users.id}">Update</a></td>
-                <td><a href="/delete?id=${users.id}">Delete</a></td>--%>
+                <td><a href="/update?id=${users.id}">Update</a></td>
+                <td><a href="/delete?id=${users.id}">Delete</a></td>
             </tr>
         </c:forEach>
 
@@ -87,5 +104,9 @@
 
 </div>
 
+
+
+
+</div>
 </body>
 </html>

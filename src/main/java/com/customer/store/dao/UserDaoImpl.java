@@ -21,7 +21,7 @@ public class UserDaoImpl implements UserDao {
     @SuppressWarnings("unchecked")
     @Override
     public List<User> getAllUser() {
-        hibernateTemplate.setCheckWriteOperations(false);
+       // hibernateTemplate.setCheckWriteOperations(false);
         String hql = "FROM User";
         return (List<User>) hibernateTemplate.find(hql);
     }
@@ -33,7 +33,16 @@ public class UserDaoImpl implements UserDao {
     }
 
 
-/*
+    @Override
+    public void updateUser (User user) {
+        User u = getUserById(user.getId());
+        u.setName(user.getName());
+        u.setPassword(user.getPassword());
+        u.setLogin(user.getLogin());
+        hibernateTemplate.update(u);
+    }
+
+
     @Override
     public User getUserById(int id){
         return hibernateTemplate.get(User.class, id);
@@ -49,18 +58,9 @@ public class UserDaoImpl implements UserDao {
 
 
 
-    @Override
-    public void updateUser (User user) {
-        User u = getUserById(user.getId());
-        u.setName(user.getName());
-        u.setPassword(user.getPassword());
-        u.setLogin(user.getLogin());
-        hibernateTemplate.update(u);
-    }
-
 
     @Override
     public void deleteUser(int id){
         hibernateTemplate.delete(getUserById(id));
-    }*/
+    }
 }

@@ -22,7 +22,7 @@ public class UserServiceImpl implements UserService {
     public void addUser(User user) {
         userDao.addUser(user);
     }
-/*
+
     @Override
     public User getUserById(int id) {
         return userDao.getUserById(id);
@@ -43,5 +43,5 @@ public class UserServiceImpl implements UserService {
     @Override
     public void deleteUser(int id) {
         userDao.deleteUser(id);
-    }*/
+    }
 }
