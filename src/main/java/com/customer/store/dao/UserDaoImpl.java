@@ -9,11 +9,14 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.orm.hibernate4.HibernateTemplate;
 import org.springframework.stereotype.Repository;
 
+import javax.transaction.Transactional;
+import java.awt.print.Book;
 import java.io.IOException;
 import java.util.List;
-
+@Transactional //TODO не удалялось из-за этой анотации
 @Repository
 public class UserDaoImpl implements UserDao {
+
 
     @Autowired
     private HibernateTemplate hibernateTemplate; //Spring Hibernate template
@@ -21,7 +24,7 @@ public class UserDaoImpl implements UserDao {
     @SuppressWarnings("unchecked")
     @Override
     public List<User> getAllUser() {
-       // hibernateTemplate.setCheckWriteOperations(false);
+        hibernateTemplate.setCheckWriteOperations(false);
         String hql = "FROM User";
         return (List<User>) hibernateTemplate.find(hql);
     }
@@ -50,17 +53,16 @@ public class UserDaoImpl implements UserDao {
 
     @Override
     public User getUserByLogin(String login){
+        hibernateTemplate.setCheckWriteOperations(false);
         String hql = "FROM User u WHERE u.login = :login";
         return null;
     }
-
-
-
-
-
 
     @Override
     public void deleteUser(int id){
         hibernateTemplate.delete(getUserById(id));
     }
+
+
+
 }

@@ -18,7 +18,7 @@
 <style>
     #centerTable{
         position: absolute; /* Абсолютное позиционирование */
-        width: 350px; /* Ширина слоя в пикселах */
+        width: 400px; /* Ширина слоя в пикселах */
         height: 170px; /* Высота слоя в пикселах */
         left: 50%; /* Положение слоя от левого края */
         top: 60%; /* Положение слоя от верхнего края */
@@ -57,7 +57,14 @@
                 <td><c:out value="${users.role}"/></td>
 
                 <td><a href="/update?id=${users.id}">Update</a></td>
-                <td><a href="/delete?id=${users.id}">Delete</a></td>
+
+                <%--<td><a href="/delete/${users.id}">Delete </a></td>--%>
+
+                <td><a href="<c:url value='/delete/${users.id}'/>">Delete</a></td>
+
+                <%--<td><a href="${pageContext.request.contextPath}/delete?id=${users.id}">Delete </a></td>--%>
+
+
             </tr>
         </c:forEach>
 

@@ -1,11 +1,9 @@
 package com.customer.store.config;
 
 import org.springframework.context.MessageSource;
-import org.springframework.context.annotation.Bean;
-import org.springframework.context.annotation.ComponentScan;
-import org.springframework.context.annotation.Configuration;
-import org.springframework.context.annotation.Import;
+import org.springframework.context.annotation.*;
 import org.springframework.context.support.ReloadableResourceBundleMessageSource;
+import org.springframework.transaction.annotation.EnableTransactionManagement;
 import org.springframework.web.servlet.LocaleResolver;
 import org.springframework.web.servlet.config.annotation.EnableWebMvc;
 import org.springframework.web.servlet.config.annotation.InterceptorRegistry;
@@ -17,7 +15,8 @@ import org.springframework.web.servlet.view.InternalResourceViewResolver;
 
 import java.util.Locale;
 
-@Configuration 
+
+@Configuration
 @ComponentScan("com.customer.store")
 @Import(DBConfig.class)
 @EnableWebMvc   
@@ -57,3 +56,6 @@ public class AppConfig extends WebMvcConfigurerAdapter  {
     	registry.addResourceHandler("/app-resources/**").addResourceLocations("/resources/");
     }    
 }  
+
+
+

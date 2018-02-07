@@ -14,26 +14,11 @@
 
 <body>
 
-<style>
-    #centerForm {
-        position: absolute; /* Абсолютное позиционирование */
-        width: 350px; /* Ширина слоя в пикселах */
-        height: 170px; /* Высота слоя в пикселах */
-        left: 50%; /* Положение слоя от левого края */
-        top: 30%; /* Положение слоя от верхнего края */
-        margin-left: -150px; /* Отступ слева */
-        margin-top: -100px;	/* Отступ сверху */
-        background: #C4E4ED; /* Цвет фона */
-        border: solid 1px black; /* Параметры рамки вокруг */
-        padding: 10px; /* Поля вокруг текста */
-        overflow: auto; /* Добавление полосы прокрутки */
-    }
-</style>
 
 <style>
     #centerTable{
         position: absolute; /* Абсолютное позиционирование */
-        width: 350px; /* Ширина слоя в пикселах */
+        width: 400px; /* Ширина слоя в пикселах */
         height: 170px; /* Высота слоя в пикселах */
         left: 50%; /* Положение слоя от левого края */
         top: 60%; /* Положение слоя от верхнего края */
@@ -45,28 +30,6 @@
         overflow: auto; /* Добавление полосы прокрутки */
     }
 </style>
-
-<div id="centerForm">
-
-
-    <form:form method="post" commandName="user" action="/add" >
-
-<p>    <form:label path="name"> Name </form:label>
-       <form:input path="name" />
-</p>
-<p>
-        <form:label path="login"> Login </form:label>
-        <form:input path="login" />
-</p>
-        <form:label path="password"> Password </form:label>
-        <form:input path="password" />
-</p>
-
-                <footer>
-                    <input type="submit" value="   Enter   " tabindex="4">
-                </footer>
-</p>
-    </form:form>
 
 
 </div>
@@ -94,7 +57,13 @@
                 <td><c:out value="${users.role}"/></td>
 
                 <td><a href="/update?id=${users.id}">Update</a></td>
-                <td><a href="/delete?id=${users.id}">Delete</a></td>
+
+                <%--<td><a href="/delete/${users.id}">Delete </a></td>--%>
+
+                <td><a href="<c:url value='/delete/${users.id}'/>">Delete</a></td>
+                <%--<td><a href="${pageContext.request.contextPath}/delete?id=${users.id}">Delete </a></td>--%>
+
+
             </tr>
         </c:forEach>
 
