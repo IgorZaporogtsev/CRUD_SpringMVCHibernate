@@ -56,11 +56,12 @@
                 <td><c:out value="${users.password}"/></td>
                 <td><c:out value="${users.role}"/></td>
 
-                <td><a href="/update?id=${users.id}">Update</a></td>
+                <td><a href="<c:url value='/update/${users.id}'/>">Update</a></td>
 
                 <%--<td><a href="/delete/${users.id}">Delete </a></td>--%>
 
                 <td><a href="<c:url value='/delete/${users.id}'/>">Delete</a></td>
+
                 <%--<td><a href="${pageContext.request.contextPath}/delete?id=${users.id}">Delete </a></td>--%>
 
 

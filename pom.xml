@@ -8,11 +8,16 @@
     <name>CRUD</name>
 
     <properties>
+
+
         <java-version>1.8</java-version>
         <org.springframework-version>4.0.3.RELEASE</org.springframework-version>
         <org.aspectj-version>1.7.4</org.aspectj-version>
         <org.slf4j-version>1.7.5</org.slf4j-version>
         <hibernate.version>4.3.5.Final</hibernate.version>
+        <spring.security>4.0.3.RELEASE</spring.security>
+
+
     </properties>
 
     <dependencies>
@@ -160,7 +165,41 @@
             <artifactId>spring-context</artifactId>
             <version>4.3.13.RELEASE</version>
         </dependency>
+
+
+        <!--           spring-security                     -->
+
+        <dependency>
+            <groupId>org.springframework.security</groupId>
+            <artifactId>spring-security-web</artifactId>
+            <version>${spring.security}</version>
+        </dependency>
+
+        <dependency>
+            <groupId>org.springframework.security</groupId>
+            <artifactId>spring-security-core</artifactId>
+            <version>${spring.security}</version>
+        </dependency>
+
+        <dependency>
+            <groupId>org.springframework.security</groupId>
+            <artifactId>spring-security-config</artifactId>
+            <version>${spring.security}</version>
+        </dependency>
+
+        <dependency>
+            <groupId>org.springframework.security</groupId>
+            <artifactId>spring-security-taglibs</artifactId>
+            <version>${spring.security}</version>
+        </dependency>
+
+
     </dependencies>
+
+
+
+
+
 
     <build>
         <finalName>BookManger</finalName>
