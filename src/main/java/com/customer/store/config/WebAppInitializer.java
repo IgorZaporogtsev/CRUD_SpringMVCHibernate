@@ -11,7 +11,7 @@ public class WebAppInitializer extends AbstractAnnotationConfigDispatcherServlet
 		};
 	}
 
-	// Тут добавляем конфигурацию, в которой инициализируем ViewResolver d в классе AppConfig.class
+	// Тут добавляем конфигурацию, в которой инициализируем ViewResolver в классе AppConfig.class
 	@Override
 	protected Class<?>[] getServletConfigClasses() {
 		//return null;

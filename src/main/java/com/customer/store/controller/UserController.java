@@ -14,12 +14,13 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import javax.servlet.http.HttpServletRequest;
 
 @Controller
+@RequestMapping(value = "/user")
 public class UserController {
 
     @Autowired
     private UserService userService;
 
-    @RequestMapping(value = "/user", method = RequestMethod.GET)
+    @RequestMapping//(value = "/user", method = RequestMethod.GET)
     public String getAllUser(Model model){
         model.addAttribute("getAllUser", this.userService.getAllUser());
         return "getAlluser";
@@ -43,7 +44,7 @@ public class UserController {
         return "redirect:/user";
     }
 
-    @RequestMapping("update/{id}")
+    @RequestMapping("/update/{id}")
     public String updatePageUser(@PathVariable("id") int id, Model model){
         model.addAttribute("user", this.userService.getUserById(id));
         model.addAttribute("addAllUser", userService.getAllUser());

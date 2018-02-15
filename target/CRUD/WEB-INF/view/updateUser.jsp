@@ -31,7 +31,7 @@
 <div id="centerForm">
 
 
-    <form:form method="post" commandName="user" action="/update" >
+    <form:form method="post" commandName="user" action="/user/update" >
 
         <td>
             <form:hidden path="id"/>
