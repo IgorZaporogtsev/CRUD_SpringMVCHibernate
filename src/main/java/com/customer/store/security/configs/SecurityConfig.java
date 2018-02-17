@@ -33,11 +33,13 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
 		 или для добавления пользовательского UserDetailsService (хранилище пользователей)
 		*/
 
-		auth.inMemoryAuthentication()
+		/*auth.inMemoryAuthentication()
                 .withUser("user").password("user").roles("USER")
                 .and()
-                .withUser("admin").password("admin").roles("USER", "ADMIN");
+                .withUser("admin").password("admin").roles("USER", "ADMIN");*/
 
+
+        auth.userDetailsService(authenticationService);
     }
 
 
@@ -50,10 +52,9 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
                 .antMatchers("/admin/**").hasAnyAuthority("ROLE_ADMIN")
                 .and()
                 .formLogin() //Указывает на поддержку проверки подлинности на основе форм.
-                .loginPage("/")
+               // .loginPage("/")
                 .defaultSuccessUrl("/user")
                 .usernameParameter("username")
-                .passwordParameter("password")
-                .permitAll();
+                .passwordParameter("password");
     }
 }

@@ -30,7 +30,6 @@ public class DBConfig {
 		return new HibernateTemplate(sessionFactory());
 	}
 
-
 	@Bean
 	public SessionFactory sessionFactory() {
 		LocalSessionFactoryBean lsfb = new LocalSessionFactoryBean();
@@ -44,6 +43,7 @@ public class DBConfig {
 		}
 		return lsfb.getObject();
 	}
+
 	@Bean
 	public DataSource getDataSource() {
 	    BasicDataSource dataSource = new BasicDataSource();
@@ -53,6 +53,7 @@ public class DBConfig {
 	    dataSource.setPassword(env.getProperty("database.password"));
 	    return dataSource;
 	}
+
 	@Bean
 	public HibernateTransactionManager hibTransMan(){
 		return new HibernateTransactionManager(sessionFactory());

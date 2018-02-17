@@ -28,7 +28,7 @@ public class AppConfig extends WebMvcConfigurerAdapter  {
         resolver.setSuffix(".jsp");
         return resolver;  
     }
-    @Bean //TODO
+    @Bean //TODO сообщения я не вывожу мне не нужен этот метод
     public MessageSource messageSource() {
         ReloadableResourceBundleMessageSource messageSource = new ReloadableResourceBundleMessageSource();
         messageSource.setBasename("/WEB-INF/i18/messages");
@@ -50,7 +50,9 @@ public class AppConfig extends WebMvcConfigurerAdapter  {
 		LocaleChangeInterceptor interceptor = new LocaleChangeInterceptor();
 		interceptor.setParamName("mylocale");
 		registry.addInterceptor(interceptor);
-    }  
+    }
+
+    // ResourceHandlerRegistry подключает статические ресурсы
     @Override
     public void addResourceHandlers(ResourceHandlerRegistry registry) {
     	registry.addResourceHandler("/app-resources/**").addResourceLocations("/resources/");

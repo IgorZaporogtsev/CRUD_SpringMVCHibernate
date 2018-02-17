@@ -22,6 +22,6 @@ public class AuthenticationService implements UserDetailsService {
 			throw new UsernameNotFoundException("Username " + username + " not found");
 		}
 
-		return (UserDetails) user;
+		return  user;
 	}
 }
