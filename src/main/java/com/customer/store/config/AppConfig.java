@@ -1,5 +1,6 @@
 package com.customer.store.config;
 
+import com.customer.store.config.initializer.TestDataInitializer;
 import org.springframework.context.MessageSource;
 import org.springframework.context.annotation.*;
 import org.springframework.context.support.ReloadableResourceBundleMessageSource;
@@ -56,7 +57,14 @@ public class AppConfig extends WebMvcConfigurerAdapter  {
     @Override
     public void addResourceHandlers(ResourceHandlerRegistry registry) {
     	registry.addResourceHandler("/app-resources/**").addResourceLocations("/resources/");
-    }    
+    }
+
+
+    @Bean(initMethod = "init")
+    public TestDataInitializer initTestData() {
+        return new TestDataInitializer();
+    }
+
 }  
 
 

@@ -12,8 +12,6 @@ import java.util.List;
 @Repository
 public class UserDaoImpl implements UserDao {
 
-
-
     @Autowired
     private HibernateTemplate hibernateTemplate; //Spring Hibernate template
 
@@ -34,7 +32,6 @@ public class UserDaoImpl implements UserDao {
         hibernateTemplate.save(user);
     }
 
-
     @Override
     public void updateUser (User user) {
         User u = getUserById(user.getId());
@@ -44,7 +41,6 @@ public class UserDaoImpl implements UserDao {
         hibernateTemplate.update(u);
     }
 
-
     @Override
     public User getUserById(int id){
         return hibernateTemplate.get(User.class, id);
@@ -52,21 +48,9 @@ public class UserDaoImpl implements UserDao {
 
     @Override
     public User getUserByLogin(String login){
-//        hibernateTemplate.setCheckWriteOperations(false);
-//        return (User) hibernateTemplate.findByNamedParam("FROM User u WHERE u.login = :login","login",login);
         return (User) sessionFactory.getCurrentSession().createQuery("FROM User u WHERE u.login = :login")
                 .setParameter("login", login).uniqueResult();
-       /*         .getSingleResult();
-
-        Query query =  session.createQuery("FROM User u WHERE u.login = :login");
-        query.setParameter("login", login);
-        User user = (User) query.uniqueResult();
-        transaction.commit();
-        session.close();
-        return user;*/
     }
-
-
 
     @Override
     public void deleteUser(int id){

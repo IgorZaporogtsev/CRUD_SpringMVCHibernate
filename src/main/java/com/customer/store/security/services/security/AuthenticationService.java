@@ -15,13 +15,13 @@ public class AuthenticationService implements UserDetailsService {
 	@Autowired
 	UserService userService;
 
-	public UserDetails loadUserByUsername(String username) throws UsernameNotFoundException {
-		User user = userService.getUserByLogin(username);
+	public UserDetails loadUserByUsername(String login) throws UsernameNotFoundException {
+		User user = userService.getUserByLogin(login);
 
 		if (user == null) {
-			throw new UsernameNotFoundException("Username " + username + " not found");
+			throw new UsernameNotFoundException("Login " + login + " not found");
 		}
 
-		return  user;
+		return user;
 	}
 }

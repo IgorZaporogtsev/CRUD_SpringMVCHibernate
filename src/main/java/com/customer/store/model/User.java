@@ -9,7 +9,7 @@ import java.util.Set;
 
 
 @Entity                     //@Entity(name = "table_user") если не указываем имя таблицы в HQL используется имя класса
-@Table(name = "table_user")
+@Table(name = "users")
 public class User implements UserDetails {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
