@@ -22,6 +22,7 @@ import java.util.Properties;
 @EnableTransactionManagement
 @PropertySource("classpath:database.properties")
 public class DBConfig {
+
     @Autowired
     private Environment env;
 
@@ -58,6 +59,8 @@ public class DBConfig {
 	public HibernateTransactionManager hibTransMan(){
 		return new HibernateTransactionManager(sessionFactory());
 	}
+
+
     private Properties hibernateProperties() {
         Properties properties = new Properties();
         properties.put("hibernate.dialect", env.getProperty("hibernate.dialect"));

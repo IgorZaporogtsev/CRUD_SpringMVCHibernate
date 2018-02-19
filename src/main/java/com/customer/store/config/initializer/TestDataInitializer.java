@@ -31,6 +31,7 @@ public class TestDataInitializer {
         User admin = new User();
         admin.setLogin("admin");
         admin.setPassword("admin");
+        admin.setName("Melissa");
         Set<Role> adminRoles = new HashSet<>();
         adminRoles.add(roleAdmin);
         adminRoles.add(roleUser);
@@ -41,6 +42,7 @@ public class TestDataInitializer {
         User user = new User();
         user.setLogin("user");
         user.setPassword("user");
+        user.setName("Henry");
         Set<Role> userRoles = new HashSet<>();
         userRoles.add(roleUser);
         user.setRoles(userRoles);

@@ -54,13 +54,13 @@
                 <td><c:out value="${users.name}"/></td>
                 <td><c:out value="${users.login}"/></td>
                 <td><c:out value="${users.password}"/></td>
-                <td><c:out value="${users.role}"/></td>
 
-                <td><a href="<c:url value='/user/update/${users.id}'/>">Update</a></td>
+
+                <td><a href="<c:url value='/admin/update/${users.id}'/>">Update</a></td>
 
                 <%--<td><a href="/delete/${users.id}">Delete </a></td>--%>
 
-                <td><a href="<c:url value='/user/delete/${users.id}'/>">Delete</a></td>
+                <td><a href="<c:url value='/admin/delete/${users.id}'/>">Delete</a></td>
 
                 <%--<td><a href="${pageContext.request.contextPath}/delete?id=${users.id}">Delete </a></td>--%>
 
@@ -71,7 +71,7 @@
 
     </table>
 <br>
-    <a href="/user/add">Add User</a>
+    <a href="/admin/add">Add User</a>
 </div>
 
 

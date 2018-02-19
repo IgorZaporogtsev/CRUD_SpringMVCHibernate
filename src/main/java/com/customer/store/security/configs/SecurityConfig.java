@@ -1,6 +1,7 @@
 package com.customer.store.security.configs;
 
 
+import com.customer.store.security.handlers.CustomAuthenticationSuccessHandler;
 import com.customer.store.security.services.security.AuthenticationService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.ComponentScan;
@@ -22,8 +23,8 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
     @Autowired
     private AuthenticationService authenticationService;
 
-    //@Autowired
-    //private CustomAuthenticationSuccessHandler customAuthenticationSuccessHandler;
+    @Autowired
+    private CustomAuthenticationSuccessHandler customAuthenticationSuccessHandler;
 
 
     @Autowired
@@ -47,13 +48,13 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
     @Override
     protected void configure(HttpSecurity http) throws Exception {
         http.authorizeRequests()
-                .antMatchers("/user/**").hasAnyAuthority("ROLE_USER")
+                .antMatchers("/user/**").hasAnyAuthority("USER")
                 //.antMatchers("/user/**").hasRole("USER")
-                .antMatchers("/admin/**").hasAnyAuthority("ROLE_ADMIN")
+                .antMatchers("/admin/**").hasAnyAuthority("ADMIN")
                 .and()
                 .formLogin() //Указывает на поддержку проверки подлинности на основе форм.
                // .loginPage("/")
-                .defaultSuccessUrl("/user")
+                .successHandler(customAuthenticationSuccessHandler)
                 .usernameParameter("username")
                 .passwordParameter("password");
     }
