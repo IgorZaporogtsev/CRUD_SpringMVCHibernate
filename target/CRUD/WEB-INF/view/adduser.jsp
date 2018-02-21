@@ -31,7 +31,7 @@
 <div id="centerForm">
 
 
-    <form:form method="post" commandName="user" action="/user/add" >
+    <form:form method="post" commandName="user" action="/admin/add" >
 
     <p>    <form:label path="name"> Name </form:label>
         <form:input path="name" />

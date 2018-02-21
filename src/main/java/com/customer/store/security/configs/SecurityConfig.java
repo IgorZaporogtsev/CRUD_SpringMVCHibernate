@@ -17,7 +17,7 @@ import org.springframework.web.filter.CharacterEncodingFilter;
 @Configuration      //Класс может обрабатываться контейнером Spring для генерации bean компонентов
 @ComponentScan("com.customer.store")
 @EnableWebSecurity  // интеграцию Spring Security с Spring MVC
-@EnableGlobalMethodSecurity(prePostEnabled = true) 	//TODO
+@EnableGlobalMethodSecurity(prePostEnabled = true) 	//TODO показыает что мы защищаем методы с помощью конфигурации Java???
 public class SecurityConfig extends WebSecurityConfigurerAdapter {
 
     @Autowired
@@ -49,13 +49,19 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
     protected void configure(HttpSecurity http) throws Exception {
         http.authorizeRequests()
                 .antMatchers("/user/**").hasAnyAuthority("USER")
-                //.antMatchers("/user/**").hasRole("USER")
+                //.antMatchers("/user/**").hasRole("USER")                                   //TODO разница в префиксе ROLE_
                 .antMatchers("/admin/**").hasAnyAuthority("ADMIN")
                 .and()
                 .formLogin() //Указывает на поддержку проверки подлинности на основе форм.
                // .loginPage("/")
-                .successHandler(customAuthenticationSuccessHandler)
-                .usernameParameter("username")
-                .passwordParameter("password");
+                .successHandler(customAuthenticationSuccessHandler);
+
+
+                //.usernameParameter("username")
+                //.passwordParameter("password")
+                //.and()
+                //.logout().logoutUrl("/logout").permitAll();
+
+
     }
 }

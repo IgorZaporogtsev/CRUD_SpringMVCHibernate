@@ -34,6 +34,11 @@ public class CustomAuthenticationSuccessHandler implements AuthenticationSuccess
                                         HttpServletResponse response,
                                         Authentication auth) throws IOException, ServletException {
 
+        /*
+        Class AuthorityUtils - Utility method for manipulating GrantedAuthority collections etc.
+        authorityListToSet - Converts an array of GrantedAuthority objects to a Set.
+        */
+
         Set<String> roles = AuthorityUtils.authorityListToSet(auth.getAuthorities());
 
         if (roles.contains("ADMIN")) {
@@ -41,7 +46,6 @@ public class CustomAuthenticationSuccessHandler implements AuthenticationSuccess
         } else if (roles.contains("USER")) {
             response.sendRedirect("/user");
         }
-
 
 
         /*Collection<? extends GrantedAuthority> authorities = auth.getAuthorities();
@@ -57,6 +61,4 @@ public class CustomAuthenticationSuccessHandler implements AuthenticationSuccess
             throw new IllegalStateException();
         }*/
     }
-
-
 }

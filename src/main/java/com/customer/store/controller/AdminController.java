@@ -23,7 +23,6 @@ public class AdminController {
         return "getAlluser";
     }
 
-
     @RequestMapping(value = "/add", method = RequestMethod.GET)
     public String getAddPageUser(Model model){
         model.addAttribute("user", new User());

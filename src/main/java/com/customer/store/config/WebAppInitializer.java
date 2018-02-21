@@ -1,7 +1,10 @@
 package com.customer.store.config;
 import org.springframework.web.servlet.support.AbstractAnnotationConfigDispatcherServletInitializer;
 
-public class WebAppInitializer extends AbstractAnnotationConfigDispatcherServletInitializer { //TODO
+
+// AbstractAnnotationConfigDispatcherServletInitializer - для настройки SpringMVC конфигурации
+public class WebAppInitializer extends AbstractAnnotationConfigDispatcherServletInitializer {
+
 	// Этот метод должен содержать конфигурации которые инициализируют Beans
 	// для инициализации бинов у нас использовалась аннотация @Bean
 	@Override
